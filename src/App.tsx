@@ -2,7 +2,14 @@ import MainPage from "pages/MainPage";
 
 function App() {
     return (
-        <div className="container">
+        <div
+            style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+            }}
+            className="container"
+        >
             <MainPage />
         </div>
     );
