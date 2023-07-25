@@ -1,7 +1,7 @@
 import service from "shared/service"
 
 export const getStatistic = () => {
-    service.getStatistic()
+    return service.getStatistic()
         .then(res => {
             if(res.status === 200) {
                 return res.data
