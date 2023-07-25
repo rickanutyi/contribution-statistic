@@ -67,7 +67,6 @@ export const useGetStatistic = () => {
     }, []);
 
     const w = useMemo(() => {
-        console.log(statistic)
         const res: Statistic[][] = [];
         let week = [];
         if (statistic) {
@@ -88,3 +87,28 @@ export const useGetStatistic = () => {
         weeksArray,
     };
 };
+
+export const daysOfWeekArray = [
+    "Воскресенье",
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+];
+
+export const monthsArray = [
+    "Январь",
+    "Февраль",
+    "Март",
+    "Апрель",
+    "Май",
+    "Июнь",
+    "Июль",
+    "Август",
+    "Сентябрь",
+    "Октябрь",
+    "Ноябрь",
+    "Декабрь",
+];
