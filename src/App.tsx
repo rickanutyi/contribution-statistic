@@ -1,15 +1,8 @@
 import MainPage from "pages/MainPage";
-
+import "./styles/main.scss";
 function App() {
     return (
-        <div
-            style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-            }}
-            className="container"
-        >
+        <div className="container">
             <MainPage />
         </div>
     );

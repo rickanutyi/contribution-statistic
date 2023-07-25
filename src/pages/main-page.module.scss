@@ -1,0 +1,28 @@
+.graf {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 2px;
+
+    padding: 30px;
+    background-color: #fff;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 2px
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    span {
+        font-size: 8px;
+        color: #959494;
+    }
+    & > div {
+        display: flex;
+        gap: 2px
+    }
+}

@@ -3,16 +3,44 @@ import classes from "./cell.module.scss";
 
 import { ReactComponent as TriangleIcon } from "assets/corner.svg";
 import { formatDate } from "shared/libs";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useOutsideClick } from "shared/hooks";
+import { format } from "date-fns";
 
 type Fullness = 0 | 1 | 2 | 3 | 4;
 type CellProps = {
     fullness: Fullness;
     date: Date;
     value: number;
+    view?: boolean
 };
-function Cell({ fullness, date, value }: CellProps) {
+
+const daysOfWeekArray = [
+    "Воскресенье",
+    "Понедельник",
+    "Вторник",
+    "Среда",
+    "Четверг",
+    "Пятница",
+    "Суббота",
+];
+
+const monthsArray = [
+    "Январь",
+    "Февраль",
+    "Март",
+    "Апрель",
+    "Май",
+    "Июнь",
+    "Июль",
+    "Август",
+    "Сентябрь",
+    "Октябрь",
+    "Ноябрь",
+    "Декабрь",
+];
+
+function Cell({ fullness, date, value, view }: CellProps) {
     const [showTooltip, setShowTooltip] = useState(false);
 
     const ref = useRef<HTMLDivElement>(null);
@@ -22,6 +50,7 @@ function Cell({ fullness, date, value }: CellProps) {
         <div
             ref={ref}
             onClick={(e) => {
+                if(view) return;
                 e.stopPropagation();
                 setShowTooltip(!showTooltip);
             }}
@@ -36,7 +65,10 @@ function Cell({ fullness, date, value }: CellProps) {
                     {value} contributions
                 </div>
                 <div className={classes.cell__tooltip_bottom}>
-                    {formatDate(new Date(), "eeee, MM MMMM, yyyy")}
+                    {/* {format(date, "eeee, MM MMMM, yyyy")} */}
+                    {`${daysOfWeekArray[date.getDay()]}, ${date.getDate()} ${
+                        monthsArray[date.getMonth()]
+                    }, ${date.getFullYear()}`}
                 </div>
             </div>
             <div
